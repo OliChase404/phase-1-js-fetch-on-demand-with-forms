@@ -1,7 +1,8 @@
 body, css {
   margin: 0;
   padding: 0;
-  background-color: aliceblue;
+  color: aliceblue;
+  background-color: rgb(0, 38, 71);
   text-align: center;
 }
 
