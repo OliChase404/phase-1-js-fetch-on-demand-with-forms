@@ -6,12 +6,20 @@ const titleSection = document.getElementById('titleSection')
 const summarySection = document.getElementById('summarySection')
 const newTitleSection = document.createElement('p')
 const newSummarySection = document.createElement('p')
+const newMovieForm = document.getElementById("newMovieForm")
+const newMovieTitle = document.getElementById('newMovieTitle')
+const newMovieSummary = document.getElementById('newMovieSummary')
 titleSection.appendChild(newTitleSection)
 summarySection.appendChild(newSummarySection)
 
 inputForm.addEventListener('submit', (event) => {
     event.preventDefault()
     getMovie(inputValue.value)
+})
+
+newMovieForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    addMovie(newMovieTitle.value, newMovieSummary.value)
 })
     
     
@@ -28,7 +36,20 @@ function getMovie(id){
 }
     
 
+function addMovie(title, summary){
+    fetch(`http://localhost:3000/movies/`,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            title: title,
+            summary: summary,
+        })
+    })
     
+
+}
     
     
     
